@@ -10,7 +10,7 @@ window.addEventListener("load", function () {
 const API_KEY = 'AIzaSyDoGICuDn-uab0oWyXluWtdjabbbttS-cU';
 
 document.getElementById('search-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent the form from submitting normally
+    e.preventDefault();
     const searchTerm = document.getElementById('search-input').value;
     searchVideos(searchTerm);
 });
@@ -19,8 +19,8 @@ function searchVideos(query) {
     const errorContainer = document.getElementById('error-container');
     const videoContainer = document.getElementById('video-container');
 
-    errorContainer.textContent = ''; // Clear previous errors
-    videoContainer.innerHTML = ''; // Clear previous results
+    errorContainer.textContent = '';
+    videoContainer.innerHTML = '';
 
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&key=${API_KEY}`)
         .then(response => {
